@@ -494,6 +494,11 @@ $('.bt_selectWarnMeCmd').on('click', function() {
   })
 })
 
+$("#bt_selectInfoInternet").on('click', function () {
+	jeedom.cmd.getSelectModal({cmd: {type: 'info', subType: 'binary'}}, function (result) {
+		$('.configKey[data-l1key="info::internet"]').value(result.human);
+	});
+});
 
 jeedom.config.load({
   configuration: $('#config').getValues('.configKey:not(.noSet)')[0],
